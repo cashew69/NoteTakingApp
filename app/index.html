@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+   <!-- N-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Notes Apps</title>
+        <link rel="stylesheet" href="/stylesheet.css">
+        <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
+    </head>
+    <body>
+       <!-- <p><a href="http://127.0.0.1:3000/files/Dom.md">Logo Place Holder(HOME PAGE)!</a></p>-->
+        <nav class="sidebar_left">
+            <div class="File_list">
+
+                
+            </div>
+        </nav>
+        
+        <div class="main">
+
+            <form class="Form">
+                    <input class="notetitle" id="title" name="title" placeholder="Enter Title">
+                    <textarea class="textareas" id="content" name="content" placeholder="Write Note"></textarea>
+                    <preview class="preview"></preview>
+                    <div class="set">      
+                        <input type="file" class="upFile" accept="image/*"></input>  
+                        <button  class="b1">Upload</button>
+                        <button  class="b2">Delete</button>
+                        <button class="b3">Save</button>
+                     </div>
+            </form>
+        </div>
+        <script src="/main.js"></script>
+    </body>
+</html>

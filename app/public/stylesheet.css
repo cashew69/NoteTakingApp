@@ -1,0 +1,83 @@
+
+:root {
+    
+    position: absolute;
+    font-size: 16px;
+    background: rgb(255, 255, 255);
+
+    font-family: 'Source Sans Pro', sans-serif;
+ 
+}
+.set {
+    position: relative;
+    left: 850px;
+    bottom: 894px;
+    
+}
+#b1 {
+    position: relative;
+    left: 10px;
+}
+#b2 {
+    position: relative;
+    left: 10px;
+
+}
+#b3 {
+    position: relative;
+    left: 10px;
+}
+
+.sidebar_left {
+    position: relative;
+    width: 180px;
+    height: 880px;
+    background: rgb(237, 245, 226);
+    font-size: 12px;
+    text-align: left;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.main {
+    margin-left: 180px;
+    padding: 0.5rem;
+    
+}
+.notetitle {
+    position: absolute;
+    top: 10px;
+    width: 820px;
+    text-align: left;
+    border-width: 1px;
+    border-style: solid ;
+    border-color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    
+    
+}
+.textareas {
+    position: absolute;
+    top: 35px;
+    width: 820px;
+    background: rgb(247, 246, 244);
+    border-style: solid ;
+    border-color: black;
+    border-width: 1px;
+    height: 53rem;
+    resize: none;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.preview {
+    position: absolute;
+    background: #eeeeeeea;
+    top: 35px;
+    height: 53.24rem;
+    left: 1050px;
+    width: 820px;
+    border-style: solid ;
+    border-color: black;
+    border-width: 1px;
+}
