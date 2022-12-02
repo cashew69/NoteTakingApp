@@ -15,6 +15,7 @@ const register = (req, res, next) => {
         let user = new User ({
             username:  req.body.username,
             password: hashedPass,
+            userid: String(Date.now())
         })
         user.save()
         .then(user =>{
@@ -44,11 +45,10 @@ const login = (req, res, next) => {
                     return
                 }
                 if(result){ 
-                    let token = jwt.sign({name: user.username}, 'qjdBohbY85xs40Jd', {expiresIn: '1h'})
-                    res.status(200).send({jwt: token });
+                    let token = jwt.sign({name: user.username}, 'qjdBohbY85xs40Jd', {expiresIn: '24h'})
+                    res.status(200).send({jwt: token , uid: user.userid});
                     //res.cookie(token)
                     //res.setHeader('Set-Cookie', token);
-                    console.log("Tried To Login")
                     return
                 
                 }else{

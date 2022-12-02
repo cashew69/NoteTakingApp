@@ -19,7 +19,7 @@ mongoose.connect(
 
 const fileStorage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, '../model/images')
+		cb(null, 'model/images/')
 	},
 	filename: (req, file, cb) => {
 		cb(null, file.originalname)
@@ -63,7 +63,8 @@ router.get('/stylesheet.css', function(req, res) {
 
 
 router.get('/app', authenticate, (req, res) => {
-	res.sendFile(__dirname +"/index.html")});
+	//res.sendFile(__dirname +"/index.html")});
+	res.render('index')});
 
 router.get('/login.js', function(req, res) {
 	res.sendFile(__dirname + "/ijs/" + "login.js");
@@ -71,13 +72,18 @@ router.get('/login.js', function(req, res) {
 router.get('/login.css', function(req, res) {
 	res.sendFile(__dirname + "/public/" + "login.css");
 	});
+
+
+router.get('/signup.js', function(req, res) {
+		res.sendFile(__dirname + "/ijs/" + "signup.js");
+		});
+router.get('/register.css', function(req, res) {
+		res.sendFile(__dirname + "/public/" + "register.css");
+		});
 	
 
 //get file list
-router.get('/files', authenticate, (req, res) => {
-	res.status(200)
-	res.send(crud.getFilelist())
-})
+router.get('/files', authenticate, crud.getFilelist)
 
 //post note
 router.post('/send', authenticate, (req, res) => {
@@ -98,11 +104,11 @@ router.post('/send', authenticate, (req, res) => {
 })
 
 //OCR POST
-router.post('/ocr', upload.single('image'), authenticate, (req, res) => {
-    console.log(req.file);
+router.post('/ocr', authenticate, upload.single('image'), (req, res) => {
+    
     var filename = req.file.originalname;
 
-    res.json(fs.imgTotext(filename));
+    res.json(crud.imgTotext(filename));
   });
 
 //get note

@@ -31,10 +31,10 @@ async function getFile(filename){
 	var content = "";
 	await fetch(URI+'files/'+ filename)
 	.then((res) => res.json())
-	.then((data) =>  content = data)
+	.then((data) =>  content = data.content)
 	Preview.innerHTML = converter.makeHtml(content)
 	Editor.value = content;
-	InTitle.value = filename.replace(".md", "");;
+	InTitle.value = filename;
 }
 
 //Displays Files in DOM.
@@ -73,7 +73,7 @@ b3.addEventListener('click', (event) => {
 		},
 		body: JSON.stringify(data)
 	};
-	fetch(URI, Request);
+	fetch(URI+"send", Request);
 });
 
 
@@ -87,7 +87,7 @@ b2.addEventListener('click', (event) => {
 	};
 	var content = "";
 
-	fetch(URI+'files/'+filename+'.md', Request)
+	fetch(URI+'files/'+filename, Request)
 	.then((res) => res.json())
 	.then((data) => content = data)
 	console.log(content)
@@ -110,6 +110,6 @@ b1.addEventListener('click', (event) => {
 		//},
 		body: form
 	};
-	fetch(URI+'images', Request).catch(console.error);
-
+	fetch(URI+'ocr', Request).catch(console.error);
+	
 })
