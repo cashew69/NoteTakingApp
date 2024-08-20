@@ -2,6 +2,8 @@ const { User } = require('../middleware/schemas')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { response } = require('express')
+const crypto = require('crypto');
+
 
 
 
@@ -15,7 +17,9 @@ const register = (req, res, next) => {
         let user = new User ({
             username:  req.body.username,
             password: hashedPass,
-            userid: String(Date.now())
+            userid: String(Date.now()),
+            key: crypto.randomBytes(32),
+            iv: crypto.randomBytes(16)
         })
         user.save()
         .then(user =>{

@@ -12,7 +12,7 @@ const cookieparser = require('cookie-parser')
 
 //MongoDb Connection
 mongoose.connect(
-	'mongodb://127.0.0.1:27017/notes',
+	'mongodb+srv://n:n@cluster0.waqno.mongodb.net/notes?retryWrites=true&w=majority&appName=Cluster0',
 	{ useNewUrlParser: true }
 ).then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err));
@@ -41,8 +41,16 @@ router.use(express.json())
 //-----------------------------------------------------
 
 //get forms
+router.get('/', (req, res) => {
+	res.render('w')
+})
+
 router.get('/login', (req, res) => {
 	res.render('login')
+})
+
+router.get('/image', (req, res) => {
+	res.sendFile(__dirname + "/views/" + 'appss.png')
 })
 
 router.get('/register', (req, res) => {
@@ -61,10 +69,15 @@ router.get('/stylesheet.css', function(req, res) {
 });
 
 
+router.get('/w.css', function(req, res) {
+	res.sendFile(__dirname + "/public/" + "w.css");
+	});
 
 router.get('/app', authenticate, (req, res) => {
 	//res.sendFile(__dirname +"/index.html")});
 	res.render('index')});
+
+
 
 router.get('/login.js', function(req, res) {
 	res.sendFile(__dirname + "/ijs/" + "login.js");
@@ -93,7 +106,7 @@ router.post('/send', authenticate, (req, res) => {
 			title: req.body.title.toString(),
 			content: req.body.content.toString()
 		};
-		res.json(crud.setData(data.title, data.content));
+		res.json(crud.setData(data.title, data.content, req.cookies.uid));
 		console.log(`File "${data.title} is saved`);
 	}
 	else {
@@ -108,7 +121,7 @@ router.post('/ocr', authenticate, upload.single('image'), (req, res) => {
     
     var filename = req.file.originalname;
 
-    res.json(crud.imgTotext(filename));
+    res.json(crud.imgTotext(filename, req.cookies.uid));
   });
 
 //get note

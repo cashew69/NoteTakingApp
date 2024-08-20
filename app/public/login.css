@@ -1,56 +1,117 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-.btn {
-  position: absolute;
-  font-size: 16px;
-  height: auto;
-  padding: 6px;
-  background-color: #00B7FF;
-}
-
-.wrapper {
-  margin-top: 80px;
-  margin-bottom: 20px;
-}
-
-.form-signin {
-  max-width: 420px;
-  padding: 30px 38px 66px;
-  margin: 0 auto;
-  background-color: #eee;
-  border: 3px dotted rgba(0,0,0,0.1);
-}
-
-.form-signin-heading {
-  text-align:center;
-  margin-bottom: 30px;
-}
-
 .uname {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-}
 
+position: absolute;
+width: 524px;
+height: 75px;
+left: 696px;
+top: 345px;
+
+background: #FFF8FA;
+border-radius: 30px;
+border: 0px;
+
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 54px;
+
+color: rgba(0, 0, 0, 0.4);
+
+
+
+}
 .password {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-}
+position: absolute;
+width: 524px;
+height: 75px;
+left: 696px;
+top: 453px;
 
-input[type="text"] {
-  margin-bottom: 0px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
+background: #FFF8FA;
+border-radius: 30px;
+border: 0px;
 
-input[type="password"] {
-    margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 54px;
+
+
+color: rgba(0, 0, 0, 0.4);
+
+
+}
+.btn {
+  /* Rectangle 3 */
+
+position: absolute;
+width: 172px;
+height: 77px;
+left: 1048px;
+top: 600px;
+
+background: #F1FFEB;
+border-radius: 30px;
+border: 0px;
+
+/* Create Account */
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 54px;
+/* identical to box height */
+
+color: #000000;
+
+
+}
+.signup {
+/* Rectangle 4 */
+
+position: absolute;
+width: 330px;
+height: 77px;
+left: 696px;
+top: 601px;
+
+background: #F1FFEB;
+border-radius: 30px;
+border: 0px;
+/* Create Account */
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 54px;
+/* identical to box height */
+
+color: #000000;
+
+
+}
+.forgotps{
+  /* Forgot Password */
+
+position: absolute;
+width: 116px;
+height: 21px;
+left: 720px;
+top: 536px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+color: #000000;
+
+
+}

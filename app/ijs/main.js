@@ -7,7 +7,7 @@ const form = document.querySelector('form');
 const b1 = document.querySelector('.b1')
 const b2 = document.querySelector('.b2')
 const b3 = document.querySelector('.b3')
-const URI ='http://127.0.0.1:3000/' 
+const URI ='http://127.0.0.1:3000/'
 //const lis = document.querySelector('#clickonfiles');
 
 // Realtime Markdown Rendering
@@ -31,10 +31,10 @@ async function getFile(filename){
 	var content = "";
 	await fetch(URI+'files/'+ filename)
 	.then((res) => res.json())
-	.then((data) =>  content = data.content)
+	.then((data) =>  {content = data.content, title = data.title})
 	Preview.innerHTML = converter.makeHtml(content)
 	Editor.value = content;
-	InTitle.value = filename;
+	InTitle.value = title;
 }
 
 //Displays Files in DOM.
@@ -42,20 +42,29 @@ function displayfiles(){
 	fetch(URI+'files')
 	.then((res) => res.json())
 	.then((data) => {
-    	let output = `<h2>Files</h2>`;
-    	data.forEach(element => {
+		list = data
+    	let output = ``;
+		let i = 0;
+    	list.forEach(element => {
+			if (element[0].length > 16){
+				displayElement = element[0].slice(0,16) + "..."  
+				
+			}
+			else {displayElement = element[0]}
         	output += `
             	<ul>
-                	<li><a onclick="getFile('${element}')">${element}</a></li>
+                	<li><a onclick="getFile('${element[1]}')">${displayElement}</a></li>
             	</ul>
         	`;
+			i += 1;
     	});
     	document.querySelector('.File_list').innerHTML = output;	
+		
 	})
 }
 
 // Sends POST request to server with {title: "", content: ""}
-b3.addEventListener('click', (event) => {
+b3.addEventListener('click', async (event) => {
 	event.preventDefault();
 
 	const formData = new FormData(form);
@@ -73,11 +82,12 @@ b3.addEventListener('click', (event) => {
 		},
 		body: JSON.stringify(data)
 	};
-	fetch(URI+"send", Request);
+	await fetch(URI+"send", Request);
+	await location.reload()
 });
 
 
-b2.addEventListener('click', (event) => {
+b2.addEventListener('click', async (event) => {
 	event.preventDefault();
 	const formData = new FormData(form);
 	const filename = formData.get('title');
@@ -87,12 +97,12 @@ b2.addEventListener('click', (event) => {
 	};
 	var content = "";
 
-	fetch(URI+'files/'+filename, Request)
+	await fetch(URI+'files/'+filename, Request)
 	.then((res) => res.json())
 	.then((data) => content = data)
-	console.log(content)
 	Editor.value = ""
 	InTitle.value = ""
+	await location.reload()
 
 })
 
@@ -113,3 +123,9 @@ b1.addEventListener('click', (event) => {
 	fetch(URI+'ocr', Request).catch(console.error);
 	
 })
+
+function logout(){
+	document.cookie=`uid=""`
+	document.cookie=`jwt=""`
+	location.reload()
+}

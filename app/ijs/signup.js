@@ -11,4 +11,5 @@ submitbtn.addEventListener('click', async (event) =>{
       };
     //const token = ""  
     await fetch('/registering', options)
+    location.assign('/login')
 })

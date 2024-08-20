@@ -1,8 +1,9 @@
 const username = document.querySelector('.uname')
 const password = document.querySelector('.password')
-const submitbtn = document.querySelector('.btn')
+const loginbtn = document.querySelector('.btn')
+const signupbtn = document.querySelector('.signup')
 
-submitbtn.addEventListener('click', async (event) =>{
+loginbtn.addEventListener('click', async (event) =>{
     event.preventDefault()
     const options = {
         method: 'POST',
@@ -16,5 +17,9 @@ submitbtn.addEventListener('click', async (event) =>{
         .then(data => {document.cookie=`jwt=${data.jwt}`; 
         document.cookie=`uid=${data.uid}`})
         .catch(err => console.error(err));
-        window.location = '/app'
+        location.assign('/app')
+})
+
+signupbtn.addEventListener('click', () => {
+  location.assign('/register')
 })

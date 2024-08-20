@@ -1,0 +1,96 @@
+.gstart {
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 60px;
+    /* identical to box height */
+color: #000000;
+    /* Rectangle 1 */
+
+position: absolute;
+width: 347px;
+height: 101px;
+left:42%;
+top: 52%;
+
+background: rgba(255, 230, 242, 0.42);
+border-radius: 40px;
+
+    
+    }
+heading {
+    /* # Simple, Secure, Quick */
+
+position: absolute;
+width: 603px;
+height: 79px;
+left: 620px;
+top: 40px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 72px;
+
+color: #000000;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+
+}
+heading2 {
+    /* Notes */
+
+position: absolute;
+width: 186px;
+height: 79px;
+left: 1195px;
+top: 40px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 72px;
+
+color: #32C05C;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+
+}
+ul {
+position: absolute;
+height: 48px;
+left: 800px;
+top: 153px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 26px;
+line-height: 48px;
+
+/* identical to box height */
+
+color: rgba(0, 0, 0, 0.62);
+
+
+}
+img {
+    /* image 1 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 1197px;
+left: 412px;
+top: 664px;
+
+background-blend-mode: color;
+border: 1px solid #000000;
+filter: blur(0px) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+border-radius: 33px;
+
+}
