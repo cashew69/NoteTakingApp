@@ -5,7 +5,7 @@ const authenticate = (req, res, next) => {
     try {
         //const token = req.header.authorization.split(' ')[1]
         const token = req.cookies.jwt
-        const decode = jwt.verify(token, 'qjdBohbY85xs40Jd')
+        const decode = jwt.verify(token, '<TOKEN>') // example: qjdBohbY85xs40Jd 
 
         req.user = decode
         next()
